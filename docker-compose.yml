@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      # Mount the source files for development
+      # Comment out for production to use the copied files instead
+      - ./src:/usr/share/nginx/html
+    restart: unless-stopped
